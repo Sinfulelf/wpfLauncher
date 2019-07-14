@@ -1,0 +1,53 @@
+﻿<Window x:Class="torrentLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local="clr-namespace:torrentLauncher"
+        xmlns:titleBar="clr-namespace:torrentLauncher.ViewControls.TitlelBar"
+        xmlns:navigationPanel="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
+        xmlns:contentPages="clr-namespace:torrentLauncher.ViewControls.ContentPages"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="Torrent Launcher"
+        MinHeight="480" MinWidth="640"
+        Name="mainWindow"
+        HorizontalAlignment="Center" WindowStartupLocation="CenterScreen"
+        >
+    <!--WindowState="Maximized"-->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="SizeChanged">
+            <i:InvokeCommandAction Command="{Binding ResizeMainWindowCommand}"
+                                                     CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" x:Name="navigationPanelCol"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <titleBar:TitleBar x:Name="titleBar"
+                           Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           HamburgerBtnState="{Binding NavigateionPanelState,
+                                               UpdateSourceTrigger=PropertyChanged}"
+                           TitleToggleNavigationPanelCommand="{Binding ToggleNavigationPanelCommand}"
+                           ClickTitleBarButtonCommand="{Binding ClickTitleBarButtonCommand}"
+                           />
+        <navigationPanel:NavigationPanel x:Name="navigationPanel"
+                                         Margin="0 1 0 0"
+                                         Grid.Row="1" Grid.Column="0"
+                                         ToggleState="{Binding NavigateionPanelState,
+                                                       UpdateSourceTrigger=PropertyChanged}"
+                                         />
+        <contentPages:ContentWrapper Grid.Row="1" Grid.Column="1" />
+    </Grid>
+</Window>

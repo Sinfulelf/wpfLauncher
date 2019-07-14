@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="torrentLauncher.ViewControls.TitlelBar.HamburgerBtn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:torrentLauncher.ViewControls.TitlelBar"
+             mc:Ignorable="d" 
+             Name="hamburgerToggleButtonControll"
+             d:DesignHeight="50" d:DesignWidth="62">
+    <ToggleButton x:Name="hamburgerToggleButton"
+                  Cursor="Hand"
+                  IsChecked="{Binding Path=CheckedState,
+                                      Mode=OneWay, UpdateSourceTrigger=PropertyChanged,
+                                      ElementName=hamburgerToggleButtonControll}"
+                  Style="{DynamicResource MaterialDesignHamburgerToggleButton}">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Click">
+                <i:InvokeCommandAction Command="{Binding ToggleNavigationPanelCommand}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+    </ToggleButton>
+</UserControl>

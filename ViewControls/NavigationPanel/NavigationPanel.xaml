@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="torrentLauncher.ViewControls.NavigationPanel.NavigationPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Name="navigationPanelControll"
+             d:DesignHeight="750" d:DesignWidth="90">
+    <materialDesign:ColorZone Mode="PrimaryDark"
+                              materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                              materialDesign:ShadowAssist.ShadowEdges="Right">
+        <Grid Name="panelLayOut" Width="60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Grid.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=ToggleState,
+                                                       ElementName=navigationPanelControll}"
+                                     Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                             Storyboard.TargetProperty="Width"
+                                             To="190"
+                                             Duration="0:0:.265" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                             Storyboard.TargetProperty="Width"
+                                             To="60"
+                                             Duration="0:0:.265" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <local:NavigationMenu Grid.Row="0"/>
+            <local:DefaultGames Grid.Row="1" />
+        </Grid>
+    </materialDesign:ColorZone>
+</UserControl>

@@ -1,0 +1,118 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:local="clr-namespace:torrentLauncher.Styles.NavigationPanel">
+    <Style x:Key="NavigationMenuButtonStyle"
+           BasedOn="{StaticResource MaterialDesignRaisedLightButton}"
+           TargetType="{x:Type Button}">
+        <Setter Property="Button.Background" Value="{x:Null}" />
+        <Setter Property="Button.Padding" Value="10 10" />
+        <Setter Property="Button.BorderThickness" Value="0" />
+        <Setter Property="Button.Margin" Value="0 0 0 5" />
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsHovered}" Value="True" />
+                    <Condition Binding="{Binding Path=IsSelected}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Duration="0:0:0.12"
+                                                To="5 5" 
+                                                From="10 10"                                                     
+                                                Storyboard.TargetProperty="Padding" />
+                            <DoubleAnimation Duration="0:0:0.12"
+                                                To=".3"
+                                                From="0"                                                      
+                                                Storyboard.TargetProperty="(Background).Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.EnterActions>
+                <MultiDataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Duration="0:0:0.12"
+                                                To="10 10"
+                                                From="5 5"                                                      
+                                                Storyboard.TargetProperty="Padding" />
+                            <DoubleAnimation Duration="0:0:0.12"
+                                                To="0"
+                                                From=".3"                                                      
+                                                Storyboard.TargetProperty="(Background).Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.ExitActions>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="NavigationMenuIconStyle" >
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsHovered}" Value="True" />
+                    <Condition Binding="{Binding Path=IsSelected}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="00:00:0.12"
+                                            Storyboard.TargetProperty="(Foreground).Color"
+                                            From="{StaticResource Blue200Light}"
+                                            To="{StaticResource DeepPurple100Light}" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.EnterActions>
+                <MultiDataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="00:00:0.12"
+                                            Storyboard.TargetProperty="(Foreground).Color"
+                                            From="{StaticResource DeepPurple100Light}"
+                                            To="{StaticResource Blue200Light}" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.ExitActions>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="NavigationMenuTitleStyle"
+           TargetType="{x:Type TextBlock}">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsHovered}" Value="True" />
+                    <Condition Binding="{Binding Path=IsSelected}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Duration="0:0:0.12"
+                                                To="15 0 0 0" 
+                                                From="10 0 0 0"                                                     
+                                                Storyboard.TargetProperty="Margin" />
+                            <ColorAnimation Duration="00:00:0.12"
+                                            Storyboard.TargetProperty="(Foreground).Color"
+                                            From="{StaticResource White}"
+                                            To="{StaticResource DeepPurple100Light}" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.EnterActions>
+                <MultiDataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Duration="0:0:0.12"
+                                                To="10 0 0 0"
+                                                From="15 0 0 0"                                                      
+                                                Storyboard.TargetProperty="Margin" />
+                            <ColorAnimation Duration="00:00:0.12"
+                                            Storyboard.TargetProperty="(Foreground).Color"
+                                            From="{StaticResource DeepPurple100Light}"
+                                            To="{StaticResource White}" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </MultiDataTrigger.ExitActions>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

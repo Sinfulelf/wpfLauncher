@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="torrentLauncher.ViewControls.NavigationPanel.NavigationMenuItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             x:Name="navigationMenuItem"
+             d:DesignHeight="450" d:DesignWidth="80">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseEnter" >
+            <i:InvokeCommandAction Command="{Binding HoverNavigationMenuItemCommand}"
+                                   CommandParameter="{Binding ElementName=navigationMenuItemIcon}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseLeave" >
+            <i:InvokeCommandAction Command="{Binding UnHoverNavigationMenuItemCommand}"
+                                   CommandParameter="{Binding ElementName=navigationMenuItemIcon}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Button ToolTip="{Binding Path=ItemModel.Title}"
+            ToolTipService.VerticalOffset="15"
+            ToolTipService.HorizontalOffset="3"
+            ToolTipService.Placement="Right"
+            Name="navigationMenuItemButton"
+            Style="{StaticResource NavigationMenuButtonStyle}"
+            HorizontalContentAlignment="Left"
+            Width="auto"
+            Height="60">
+        <Button.Background>
+            <SolidColorBrush Color="{StaticResource Blue400Light}" Opacity="0" />
+        </Button.Background>
+        <Button.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Grid.Column="0"
+                                     Name="navigationMenuItemIcon"
+                                     Style="{StaticResource NavigationMenuIconStyle}"
+                                     Kind="{Binding Path=ItemModel.Kind}"
+                                     Height="auto"
+                                     Width="auto"
+                                     Foreground="{StaticResource BrushBlue200Light}" />
+                <TextBlock Grid.Column="1"
+                           x:Name="navigationMenuItemTitle"
+                           Style="{StaticResource NavigationMenuTitleStyle}"
+                           Text="{Binding Path=ItemModel.Title}"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Margin="10 0 0 0"
+                           FontSize="15" />
+            </Grid>
+        </Button.Content>
+    </Button>
+</UserControl>

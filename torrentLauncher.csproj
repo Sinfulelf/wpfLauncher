@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Torrent.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Styles\NavigationPanel\NavigationMenuItemStyle.xaml" />
+    <None Remove="ViewControls\ContentPages\ContentWrapper.xaml" />
+    <None Remove="ViewControls\NavigationPanel\DefaultGames.xaml" />
+    <None Remove="ViewControls\NavigationPanel\NavigationMenu.xaml" />
+    <None Remove="ViewControls\NavigationPanel\NavigationMenuGroup.xaml" />
+    <None Remove="ViewControls\NavigationPanel\NavigationMenuItem.xaml" />
+    <None Remove="ViewControls\NavigationPanel\NavigationPanel.xaml" />
+    <None Remove="ViewControls\TitlelBar\ControllPopUpBtn.xaml" />
+    <None Remove="ViewControls\TitlelBar\ControlPopUpRowItem.xaml" />
+    <None Remove="ViewControls\TitlelBar\HamburgerBtn.xaml" />
+    <None Remove="ViewControls\TitlelBar\SerchBox.xaml" />
+    <None Remove="ViewControls\TitlelBar\TitleBar.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\ContentPages\ContentWrapper.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\NavigationPanel\NavigationMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\NavigationPanel\NavigationPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\TitlelBar\ControllPopUpBtn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\TitlelBar\ControlPopUpRowItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\TitlelBar\HamburgerBtn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\TitlelBar\SerchBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewControls\TitlelBar\TitleBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Expression.Blend.Sdk" Version="1.0.2" />
+    <PackageReference Include="MaterialDesignColors" Version="1.1.3" />
+    <PackageReference Include="MaterialDesignThemes" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewControls\ContentPages\ContentWrapper.xaml.cs" />
+    <Compile Update="ViewControls\NavigationPanel\NavigationMenu.xaml.cs" />
+    <Compile Update="ViewControls\NavigationPanel\NavigationPanel.xaml.cs" />
+    <Compile Update="ViewControls\TitlelBar\ControllPopUpBtn.xaml.cs" />
+    <Compile Update="ViewControls\TitlelBar\ControlPopUpRowItem.xaml.cs" />
+    <Compile Update="ViewControls\TitlelBar\HamburgerBtn.xaml.cs" />
+    <Compile Update="ViewControls\TitlelBar\SerchBox.xaml.cs" />
+    <Compile Update="ViewControls\TitlelBar\TitleBar.xaml.cs" />
+  </ItemGroup>
+
+</Project>
