@@ -18,7 +18,8 @@
                         <DockPanel>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonUp">
-                                    <i:InvokeCommandAction Command="{Binding ElementName=controllPopUpBtnComponent,  Path=ClickTitleBarButtonCommand}"
+                                    <i:InvokeCommandAction Command="{Binding ElementName=controllPopUpBtnComponent,
+                                                                             Path=ClickTitleBarButtonCommand}"
                                                            CommandParameter="{Binding Path=ItemModel.Button}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>

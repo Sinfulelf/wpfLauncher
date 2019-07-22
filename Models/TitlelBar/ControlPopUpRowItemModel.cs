@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using torrentLauncher.Routing;
 
 namespace torrentLauncher.Models.TitlelBar
 {
@@ -13,11 +14,14 @@ namespace torrentLauncher.Models.TitlelBar
 
         public TitleBarButtons Button { get; set; }
 
-        public ControlPopUpRowItemModel(string title, PackIconKind kind, TitleBarButtons button)
+        public RoutingEnum Route { get; set; }
+
+        public ControlPopUpRowItemModel(string title, PackIconKind kind, TitleBarButtons button, RoutingEnum route  = RoutingEnum.None)
         {
             Title = title;
             Kind = kind;
             Button = button;
+            Route = route;
         }
     }
 }

@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:storage="clr-namespace:torrentLauncher.DataStorage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             x:Name="navigationMenu"
              d:DesignHeight="300" d:DesignWidth="60">
     <StackPanel Name="panelMenu"
                 Orientation="Vertical">
@@ -14,7 +16,11 @@
                       IsEnabled="{Binding IsChecked}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:NavigationMenuGroup DataContext="{Binding}" />
+                    <DockPanel>
+                        <local:NavigationMenuGroup DataContext="{Binding}"
+                                                   ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand,
+                                                                                      RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"/>
+                    </DockPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

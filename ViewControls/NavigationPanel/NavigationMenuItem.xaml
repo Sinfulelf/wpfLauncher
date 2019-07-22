@@ -23,6 +23,8 @@
             ToolTipService.VerticalOffset="15"
             ToolTipService.HorizontalOffset="3"
             ToolTipService.Placement="Right"
+            Command="{Binding Path=ClickNavigationMenuButtonCommand, ElementName=navigationMenuItem}"
+            CommandParameter="{Binding Path=ItemModel.Route}"
             Name="navigationMenuItemButton"
             Style="{StaticResource NavigationMenuButtonStyle}"
             HorizontalContentAlignment="Left"

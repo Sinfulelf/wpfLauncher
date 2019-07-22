@@ -7,6 +7,7 @@ using System.Windows;
 using torrentLauncher.Commands;
 using torrentLauncher.ComponentsEventsHandlers;
 using torrentLauncher.Helpers;
+using torrentLauncher.Routing;
 using torrentLauncher.StateStorage;
 
 namespace torrentLauncher.ViewModels
@@ -15,12 +16,15 @@ namespace torrentLauncher.ViewModels
     {
         private MainWindowState mainWindowState;
         private TitleBarEventsHandlers titleBarEventsHandlers;
+        private NavigationMenuEventHandler navigationMenuEventHandler;
         private bool navigateionPanelState;
 
         #region Constructor
         private MainWindowViewModel() {
             mainWindowState = MainWindowState.Instance;
             titleBarEventsHandlers = TitleBarEventsHandlers.Instance;
+            navigationMenuEventHandler = NavigationMenuEventHandler.Instance;
+
             mainWindowState.StateChanged += StateChanged;
         }
         private static MainWindowViewModel instance;        
@@ -81,6 +85,22 @@ namespace torrentLauncher.ViewModels
                   {
                       var width = (mainWindow as Window).ActualWidth;
                       mainWindowState.ChangeState(ChangedStateFields.WindowSize, ResizeHelper.GetSizeType(width));
+                  }));
+            }
+        }
+
+        private GeneralCommand clickNavigationMenuButton;
+        public GeneralCommand ClickNavigationMenuButtonCommand
+        {
+            get
+            {
+                return clickNavigationMenuButton ??
+                  (clickNavigationMenuButton = new GeneralCommand(buttonObj =>
+                  {
+                      if (buttonObj is RoutingEnum)
+                      {
+                          navigationMenuEventHandler.ClickHandler((RoutingEnum)buttonObj);
+                      }
                   }));
             }
         }

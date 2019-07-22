@@ -28,21 +28,25 @@ namespace torrentLauncher.ViewControls.NavigationPanel
 
         public bool ToggleState
         {
-            get
-            {
-                return (bool)GetValue(ToggleStateProperty);
-            }
-            set
-            {
-                SetValue(ToggleStateProperty, value);
-            }
+            get { return (bool)GetValue(ToggleStateProperty); }
+            set { SetValue(ToggleStateProperty, value); }
+        }
+
+        public static readonly DependencyProperty ClickNavigationMenuButtonCommandProperty =
+            DependencyProperty.Register(
+                "ClickNavigationMenuButtonCommand",
+                typeof(ICommand),
+                typeof(NavigationMenu));
+
+        public ICommand ClickNavigationMenuButtonCommand
+        {
+            get { return (ICommand)GetValue(ClickNavigationMenuButtonCommandProperty); }
+            set { SetValue(ClickNavigationMenuButtonCommandProperty, value); }
         }
 
         public NavigationMenu()
         {
             InitializeComponent();
-
-            DataContext = new NavigationMenuViewModel();
         }
     }
 }

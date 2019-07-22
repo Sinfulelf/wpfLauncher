@@ -39,12 +39,8 @@ namespace torrentLauncher.ViewControls.TitlelBar
 
         public bool HamburgerBtnState
         {
-            get {
-                return (bool)GetValue(HamburgerBtnStateProperty);
-            }
-            set {
-                SetValue(HamburgerBtnStateProperty, value);
-            }
+            get { return (bool)GetValue(HamburgerBtnStateProperty); }
+            set { SetValue(HamburgerBtnStateProperty, value); }
         }
 
         public static readonly DependencyProperty ClickTitleBarButtonCommandProperty =

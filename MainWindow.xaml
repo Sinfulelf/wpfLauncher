@@ -15,7 +15,7 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Title="Torrent Launcher"
-        MinHeight="480" MinWidth="640"
+        MinHeight="620" MinWidth="640"
         Name="mainWindow"
         HorizontalAlignment="Center" WindowStartupLocation="CenterScreen"
         >
@@ -47,6 +47,7 @@
                                          Grid.Row="1" Grid.Column="0"
                                          ToggleState="{Binding NavigateionPanelState,
                                                        UpdateSourceTrigger=PropertyChanged}"
+                                         ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand}"
                                          />
         <contentPages:ContentWrapper Grid.Row="1" Grid.Column="1" />
     </Grid>

@@ -19,6 +19,18 @@ namespace torrentLauncher.ViewControls.NavigationPanel
     /// </summary>
     public partial class NavigationMenuGroup : UserControl
     {
+        public static readonly DependencyProperty ClickNavigationMenuButtonCommandProperty =
+            DependencyProperty.Register(
+                "ClickNavigationMenuButtonCommand",
+                typeof(ICommand),
+                typeof(NavigationMenuGroup));
+
+        public ICommand ClickNavigationMenuButtonCommand
+        {
+            get { return (ICommand)GetValue(ClickNavigationMenuButtonCommandProperty); }
+            set { SetValue(ClickNavigationMenuButtonCommandProperty, value); }
+        }
+
         public NavigationMenuGroup()
         {
             InitializeComponent();
