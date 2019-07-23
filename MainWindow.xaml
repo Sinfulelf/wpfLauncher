@@ -48,6 +48,7 @@
                                          ToggleState="{Binding NavigateionPanelState,
                                                        UpdateSourceTrigger=PropertyChanged}"
                                          ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand}"
+                                         SelectedNavigationButton="{Binding SelectedNavigationButton}"
                                          />
         <contentPages:ContentWrapper Grid.Row="1" Grid.Column="1" />
     </Grid>

@@ -19,6 +19,8 @@
                     <DockPanel>
                         <local:NavigationMenuGroup DataContext="{Binding}"
                                                    ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand,
+                                                                                      RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"
+                                                   SelectedNavigationButton="{Binding SelectedNavigationButton,
                                                                                       RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"/>
                     </DockPanel>
                 </DataTemplate>

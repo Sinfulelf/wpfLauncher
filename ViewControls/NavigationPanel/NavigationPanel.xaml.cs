@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using torrentLauncher.Enums;
 
 namespace torrentLauncher.ViewControls.NavigationPanel
 {
@@ -41,6 +42,18 @@ namespace torrentLauncher.ViewControls.NavigationPanel
         {
             get { return (ICommand)GetValue(ClickNavigationMenuButtonCommandProperty); }
             set { SetValue(ClickNavigationMenuButtonCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty SelectedNavigationButtonProperty =
+           DependencyProperty.Register(
+               "SelectedNavigationButton",
+               typeof(NavigationButtons),
+               typeof(NavigationPanel));
+
+        public NavigationButtons SelectedNavigationButton
+        {
+            get { return (NavigationButtons)GetValue(SelectedNavigationButtonProperty); }
+            set { SetValue(SelectedNavigationButtonProperty, value); }
         }
 
         public NavigationPanel()

@@ -48,7 +48,8 @@
                 </Style>
             </Grid.Style>
             <local:NavigationMenu Grid.Row="0"
-                                  ClickNavigationMenuButtonCommand="{Binding Path=ClickNavigationMenuButtonCommand}">
+                                  ClickNavigationMenuButtonCommand="{Binding Path=ClickNavigationMenuButtonCommand}"
+                                  SelectedNavigationButton="{Binding Path=SelectedNavigationButton}">
             </local:NavigationMenu>
             <local:DefaultGames Grid.Row="1" />
         </Grid>

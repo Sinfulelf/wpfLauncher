@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using torrentLauncher.Enums;
 using torrentLauncher.Routing;
 
 namespace torrentLauncher.ComponentsEventsHandlers
@@ -19,7 +20,7 @@ namespace torrentLauncher.ComponentsEventsHandlers
             }
         }
 
-        public void ClickHandler(RoutingEnum button)
+        public void ClickHandler(NavigationButtons button)
         {
             var t = button;
             /*switch (button)

@@ -17,7 +17,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <local:NavigationMenuItem DataContext="{Binding}"
-                                              ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand, ElementName=navigationMenuGroup}"/>
+                                              ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand,
+                                                                                         ElementName=navigationMenuGroup}"
+                                              SelectedNavigationButton="{Binding SelectedNavigationButton,
+                                                                                 ElementName=navigationMenuGroup}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

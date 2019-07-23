@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Media;
 using torrentLauncher.Commands;
+using torrentLauncher.Enums;
 using torrentLauncher.Models.NavigationPanel;
 using torrentLauncher.ViewModels;
 
@@ -17,8 +18,7 @@ namespace torrentLauncher.ViewModels.NavigationPanel
         private GeneralCommand hoverNavigationMenuItemCommand;
         private GeneralCommand unHoverNavigationMenuItemCommand;
 
-        private GeneralCommand selectNavigationMenuItemCommand;
-        private GeneralCommand unSelectNavigationMenuItemCommand;
+        private GeneralCommand toggleNavigationMenuItemCommand;
 
         public NavigationMenuItemViewModel(NavigationMenuItemModel model)
         {
@@ -55,18 +55,36 @@ namespace torrentLauncher.ViewModels.NavigationPanel
             get => isHovered;
             set
             {
-                isHovered = value;
-                OnPropertyChanged("IsHovered");
+                if (isHovered != value)
+                {
+                    isHovered = value;
+                    OnPropertyChanged("IsHovered");
+                }
+            }
+        }
+
+        public GeneralCommand ToggleNavigationMenuItemCommand
+        {
+            get
+            {
+                return toggleNavigationMenuItemCommand ??
+                  (toggleNavigationMenuItemCommand = new GeneralCommand(obj =>
+                  {
+                      IsSelected = (NavigationButtons)obj == ItemModel.Button;
+                  }));
             }
         }
 
         public Boolean IsSelected
         {
             get => isSelected;
-            set
+            private set
             {
-                isSelected = value;
-                OnPropertyChanged("IsSelected");
+                if (isSelected != value)
+                {
+                    isSelected = value;
+                    OnPropertyChanged("IsSelected");
+                }
             }
         }
     }

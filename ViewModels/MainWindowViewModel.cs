@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows;
 using torrentLauncher.Commands;
 using torrentLauncher.ComponentsEventsHandlers;
+using torrentLauncher.Enums;
 using torrentLauncher.Helpers;
 using torrentLauncher.Routing;
 using torrentLauncher.StateStorage;
@@ -18,6 +19,7 @@ namespace torrentLauncher.ViewModels
         private TitleBarEventsHandlers titleBarEventsHandlers;
         private NavigationMenuEventHandler navigationMenuEventHandler;
         private bool navigateionPanelState;
+        private NavigationButtons selectedNavigationMenuItem;
 
         #region Constructor
         private MainWindowViewModel() {
@@ -57,8 +59,24 @@ namespace torrentLauncher.ViewModels
             get => navigateionPanelState;
             set
             {
-                navigateionPanelState = value;
-                OnPropertyChanged("NavigateionPanelState");
+                if (navigateionPanelState != value)
+                {
+                    navigateionPanelState = value;
+                    OnPropertyChanged("NavigateionPanelState");
+                }
+            }
+        }
+
+        public NavigationButtons SelectedNavigationButton
+        {
+            get => selectedNavigationMenuItem;
+            set
+            {
+                if (selectedNavigationMenuItem != value)
+                {
+                    selectedNavigationMenuItem = value;
+                    OnPropertyChanged("SelectedNavigationButton");
+                }
             }
         }
 
@@ -97,9 +115,10 @@ namespace torrentLauncher.ViewModels
                 return clickNavigationMenuButton ??
                   (clickNavigationMenuButton = new GeneralCommand(buttonObj =>
                   {
-                      if (buttonObj is RoutingEnum)
+                      if (buttonObj is NavigationButtons)
                       {
-                          navigationMenuEventHandler.ClickHandler((RoutingEnum)buttonObj);
+                          navigationMenuEventHandler.ClickHandler((NavigationButtons)buttonObj);
+                          SelectedNavigationButton = (NavigationButtons)buttonObj;
                       }
                   }));
             }

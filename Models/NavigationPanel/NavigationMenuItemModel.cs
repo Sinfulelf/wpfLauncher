@@ -2,23 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using torrentLauncher.Enums;
 using torrentLauncher.Routing;
 
 namespace torrentLauncher.Models.NavigationPanel
 {
     public class NavigationMenuItemModel
     {
-        public NavigationMenuItemModel(string title, PackIconKind kind, RoutingEnum route)
+        public NavigationMenuItemModel(string title, PackIconKind kind, NavigationButtons button)
         {
             Title = title;
             Kind = kind;
-            Route = route;
+            Button = button;
         }
 
-        public string Title { get; set; }
+        public string Title { get; private set; }
 
-        public PackIconKind Kind { get; set; }
+        public PackIconKind Kind { get; private set; }
 
-        public RoutingEnum Route { get; set; }
+        public NavigationButtons Button { get; private set; }
     }
 }
