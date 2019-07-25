@@ -44,15 +44,12 @@
                                      Style="{StaticResource NavigationMenuIconStyle}"
                                      Kind="{Binding Path=ItemModel.Kind}"
                                      Height="auto"
-                                     Width="auto"
-                                     Foreground="{StaticResource BrushBlue200Light}" />
+                                     Width="auto" />
                 <TextBlock Grid.Column="1"
                            x:Name="navigationMenuItemTitle"
                            Style="{StaticResource NavigationMenuTitleStyle}"
                            Text="{Binding Path=ItemModel.Title}"
-                           Foreground="White"
                            VerticalAlignment="Center"
-                           Margin="10 0 0 0"
                            FontSize="15" />
             </Grid>
         </Button.Content>

@@ -16,138 +16,98 @@
                     <Condition Binding="{Binding Path=IsSelected}" Value="False" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.EnterActions>
-                    <BeginStoryboard>
+                    <BeginStoryboard x:Name="NavigationMenuButtonStyleHoverStoryboard">
                         <Storyboard>
                             <ThicknessAnimation Duration="0:0:0.12"
                                                 To="5 5" 
-                                                From="10 10"                                                     
                                                 Storyboard.TargetProperty="Padding" />
                             <DoubleAnimation Duration="0:0:0.12"
-                                                To=".3"
-                                                From="0"                                                      
+                                                To=".3" 
                                                 Storyboard.TargetProperty="(Background).Opacity" />
                         </Storyboard>
                     </BeginStoryboard>
                 </MultiDataTrigger.EnterActions>
                 <MultiDataTrigger.ExitActions>
-                    <BeginStoryboard>
+                    <RemoveStoryboard BeginStoryboardName="NavigationMenuButtonStyleHoverStoryboard"/>
+                </MultiDataTrigger.ExitActions>
+            </MultiDataTrigger>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                <Setter Property="Padding" Value="5 5"/>
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard x:Name="NavigationMenuButtonStyleSelectedStoryboard">
                         <Storyboard>
-                            <ThicknessAnimation Duration="0:0:0.12"
-                                                To="10 10"
-                                                From="5 5"                                                      
-                                                Storyboard.TargetProperty="Padding" />
-                            <DoubleAnimation Duration="0:0:0.12"
-                                                To="0"
-                                                From=".3"                                                      
+                            <DoubleAnimation Duration="0:0:0.06"
+                                                To=".4" 
                                                 Storyboard.TargetProperty="(Background).Opacity" />
                         </Storyboard>
                     </BeginStoryboard>
-                </MultiDataTrigger.ExitActions>
-            </MultiDataTrigger>
-            <!--<DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                <Setter Property="Opacity" Value=".3"/>
-                <Setter Property="Padding" Value="5 5"/>
-            </DataTrigger>-->
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <RemoveStoryboard BeginStoryboardName="NavigationMenuButtonStyleSelectedStoryboard"/>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="NavigationMenuIconStyle" >
+    <Style x:Key="NavigationMenuIconStyle" TargetType="{x:Type materialDesign:PackIcon}">
         <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource BrushBlue200Light}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource BrushBlue100Light}"/>
+            </DataTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding Path=IsHovered}" Value="True" />
                     <Condition Binding="{Binding Path=IsSelected}" Value="False" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.EnterActions>
-                    <BeginStoryboard>
+                    <BeginStoryboard x:Name="NavigationMenuIconStyleHoverStoryboard">
                         <Storyboard>
                             <ColorAnimation Duration="00:00:0.12"
                                             Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource Blue200Light}"
                                             To="{StaticResource DeepPurple100Light}" />
                         </Storyboard>
                     </BeginStoryboard>
                 </MultiDataTrigger.EnterActions>
                 <MultiDataTrigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation Duration="00:00:0.12"
-                                            Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource DeepPurple100Light}"
-                                            To="{StaticResource Blue200Light}" />
-                        </Storyboard>
-                    </BeginStoryboard>
+                    <RemoveStoryboard BeginStoryboardName="NavigationMenuIconStyleHoverStoryboard"/>    
                 </MultiDataTrigger.ExitActions>
             </MultiDataTrigger>
-            <!--<DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                <DataTrigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation Duration="00:00:0.06"
-                                            Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource Blue200Light}"
-                                            To="{StaticResource DeepPurple100Light}" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </DataTrigger.EnterActions>
-            </DataTrigger>-->
         </Style.Triggers>
     </Style>
     <Style x:Key="NavigationMenuTitleStyle"
            TargetType="{x:Type TextBlock}">
         <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="False">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Margin" Value="10 0 0 0"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource BrushBlue100Light}"/>
+                <Setter Property="Margin" Value="15 0 0 0"/>
+            </DataTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding Path=IsHovered}" Value="True" />
                     <Condition Binding="{Binding Path=IsSelected}" Value="False" />
                 </MultiDataTrigger.Conditions>
                 <MultiDataTrigger.EnterActions>
-                    <BeginStoryboard>
+                    <BeginStoryboard x:Name="NavigationMenuTitleStyleHoverStoryboard">
                         <Storyboard>
                             <ThicknessAnimation Duration="0:0:0.12"
-                                                To="15 0 0 0" 
-                                                From="10 0 0 0"                                                     
+                                                To="15 0 0 0"                                                   
                                                 Storyboard.TargetProperty="Margin" />
                             <ColorAnimation Duration="00:00:0.12"
                                             Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource White}"
                                             To="{StaticResource DeepPurple100Light}" />
                         </Storyboard>
                     </BeginStoryboard>
                 </MultiDataTrigger.EnterActions>
                 <MultiDataTrigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ThicknessAnimation Duration="0:0:0.12"
-                                                To="10 0 0 0"
-                                                From="15 0 0 0"                                                      
-                                                Storyboard.TargetProperty="Margin" />
-                            <ColorAnimation Duration="00:00:0.12"
-                                            Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource DeepPurple100Light}"
-                                            To="{StaticResource White}" />
-                        </Storyboard>
-                    </BeginStoryboard>
+                    <RemoveStoryboard BeginStoryboardName="NavigationMenuTitleStyleHoverStoryboard"/>
                 </MultiDataTrigger.ExitActions>
             </MultiDataTrigger>
-            <!--<DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                <Setter Property="Margin" Value="15 0 0 0"/>
-            </DataTrigger>
-            <DataTrigger Binding="{Binding Path=IsSelected}" Value="False">
-                <DataTrigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ThicknessAnimation Duration="0:0:0.06"
-                                                To="10 0 0 0"
-                                                From="15 0 0 0"                                                      
-                                                Storyboard.TargetProperty="Margin" />
-                            <ColorAnimation Duration="00:00:0.06"
-                                            Storyboard.TargetProperty="(Foreground).Color"
-                                            From="{StaticResource DeepPurple100Light}"
-                                            To="{StaticResource White}" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </DataTrigger.EnterActions>
-            </DataTrigger>-->
         </Style.Triggers>
     </Style>
 </ResourceDictionary>
