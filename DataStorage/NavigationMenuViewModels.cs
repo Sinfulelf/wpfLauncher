@@ -15,6 +15,11 @@ namespace torrentLauncher.DataStorage
 
         static NavigationMenuViewModels()
         {
+            var home = new NavigationMenuItemModel("Home", PackIconKind.HomeOutline, NavigationButtons.Home);
+            var homeGroup = new NavigationMenuGroupModel("Home", null, new List<NavigationMenuItemViewModel> {
+                new NavigationMenuItemViewModel(home)
+            });
+
             var game = new NavigationMenuItemModel("Games", PackIconKind.GamepadVariant, NavigationButtons.Games);
             var emulators = new NavigationMenuItemModel("Emulators", PackIconKind.SpaceInvaders, NavigationButtons.Emulators);
 
@@ -40,6 +45,7 @@ namespace torrentLauncher.DataStorage
             });
 
             Groups = new List<NavigationMenuGroupViewModel> {
+                new NavigationMenuGroupViewModel(homeGroup),
                 new NavigationMenuGroupViewModel(gameGroup),
                 new NavigationMenuGroupViewModel(moviesGroup),
                 new NavigationMenuGroupViewModel(readGroup)

@@ -6,6 +6,8 @@ namespace torrentLauncher.Enums
 {
     public enum NavigationButtons
     {
+        None,
+        Home,
         Games,
         Emulators,
         Films,
