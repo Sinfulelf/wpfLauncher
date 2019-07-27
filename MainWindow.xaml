@@ -48,6 +48,8 @@
                                                        UpdateSourceTrigger=PropertyChanged}"
                                          ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand}"
                                          SelectedNavigationButton="{Binding SelectedNavigationButton}" />
-        <contentPages:ContentWrapper Grid.Row="1" Grid.Column="1" />
+        <contentPages:ContentWrapper x:Name="contentWrapper"
+                                     SelectedNavigationButton="{Binding SelectedNavigationButton}"
+                                     Grid.Row="1" Grid.Column="1" />
     </Grid>
 </Window>
