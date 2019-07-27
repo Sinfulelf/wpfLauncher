@@ -23,7 +23,7 @@
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="SizeChanged">
             <i:InvokeCommandAction Command="{Binding ResizeMainWindowCommand}"
-                                                     CommandParameter="{Binding ElementName=mainWindow}"/>
+                                   CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
@@ -32,7 +32,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" x:Name="navigationPanelCol"/>
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <titleBar:TitleBar x:Name="titleBar"
@@ -40,16 +40,14 @@
                            HamburgerBtnState="{Binding NavigateionPanelState,
                                                UpdateSourceTrigger=PropertyChanged}"
                            TitleToggleNavigationPanelCommand="{Binding ToggleNavigationPanelCommand}"
-                           ClickTitleBarButtonCommand="{Binding ClickTitleBarButtonCommand}"
-                           />
+                           ClickTitleBarButtonCommand="{Binding ClickTitleBarButtonCommand}" />
         <navigationPanel:NavigationPanel x:Name="navigationPanel"
                                          Margin="0 1 0 0"
                                          Grid.Row="1" Grid.Column="0"
                                          ToggleState="{Binding NavigateionPanelState,
                                                        UpdateSourceTrigger=PropertyChanged}"
                                          ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand}"
-                                         SelectedNavigationButton="{Binding SelectedNavigationButton}"
-                                         />
+                                         SelectedNavigationButton="{Binding SelectedNavigationButton}" />
         <contentPages:ContentWrapper Grid.Row="1" Grid.Column="1" />
     </Grid>
 </Window>

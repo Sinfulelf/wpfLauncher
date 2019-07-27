@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Styles\ColorsResource.xaml" />
 
                 <ResourceDictionary Source="Styles\NavigationPanel\NavigationMenuItemStyle.xaml" />
+                <ResourceDictionary Source="Styles\NavigationPanel\ScrollbarThumbsStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="materialDesign:ColorZone">
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
