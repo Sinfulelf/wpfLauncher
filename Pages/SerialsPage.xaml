@@ -9,6 +9,6 @@
       Title="SerialsPage">
 
     <Grid>
-        <TextBlock>Serials Page</TextBlock>        
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Serials Page</TextBlock>        
     </Grid>
 </Page>

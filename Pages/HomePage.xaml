@@ -9,6 +9,6 @@
       Title="HomePage">
 
     <Grid>
-        <TextBlock>Home Page</TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Home Page</TextBlock>
     </Grid>
 </Page>

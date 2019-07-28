@@ -9,6 +9,6 @@
       Title="EmulatrorsPage">
 
     <Grid>
-        <TextBlock>Emulatrors Page</TextBlock>     
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Emulatrors Page</TextBlock>     
     </Grid>
 </Page>

@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
+             xmlns:enums="clr-namespace:torrentLauncher.Enums"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:materialDesignWpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
              mc:Ignorable="d" 
+             x:Name="defaultGames"
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <materialDesign:PopupBox Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
@@ -28,12 +30,18 @@
                                          Height="45" />
             </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel Margin="5 0 0 0">
-                <Button ToolTip="Clicker"
-                        Content="C"/>
+                <Button ToolTip="Sokoban"
+                        Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
+                        CommandParameter="{x:Static enums:NavigationButtons.Sokoban}"
+                        Content="So"/>
                 <Button ToolTip="Snake"
-                        Content="S"/>
+                        Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
+                        CommandParameter="{x:Static enums:NavigationButtons.Snake}"
+                        Content="Sn"/>
                 <Button ToolTip="Tetris"
-                        Content="T"/>
+                        Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
+                        CommandParameter="{x:Static enums:NavigationButtons.Tetris}"
+                        Content="Tr"/>
             </StackPanel>
         </materialDesign:PopupBox>
     </DockPanel>

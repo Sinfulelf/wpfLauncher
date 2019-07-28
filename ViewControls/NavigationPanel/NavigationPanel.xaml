@@ -12,7 +12,7 @@
     <materialDesign:ColorZone Mode="PrimaryDark"
                               materialDesign:ShadowAssist.ShadowDepth="Depth5"
                               materialDesign:ShadowAssist.ShadowEdges="Right">
-        <Grid Name="panelLayOut" Width="65">
+        <Grid Name="panelLayOut" Width="63">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="80" />
@@ -38,7 +38,7 @@
                                     <Storyboard>
                                         <DoubleAnimation
                                              Storyboard.TargetProperty="Width"
-                                             To="60"
+                                             To="63"
                                              Duration="0:0:.265" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -57,7 +57,7 @@
                     Padding="5 5"
                     BorderBrush="{StaticResource BrushBlue700Dark}"
                     DockPanel.Dock="Top">
-                    <local:DefaultGames/>
+                <local:DefaultGames ClickNavigationMenuButton="{Binding Path=ClickNavigationMenuButtonCommand}"/>
             </Border>
         </Grid>
     </materialDesign:ColorZone>

@@ -9,6 +9,6 @@
       Title="ComicsPage">
 
     <Grid>
-        <TextBlock>Comics Page</TextBlock>      
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Comics Page</TextBlock>      
     </Grid>
 </Page>

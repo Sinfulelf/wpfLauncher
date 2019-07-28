@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using torrentLauncher.Enums;
 
 namespace torrentLauncher.ViewControls.NavigationPanel
 {
@@ -18,6 +19,18 @@ namespace torrentLauncher.ViewControls.NavigationPanel
     /// </summary>
     public partial class DefaultGames : UserControl
     {
+        public static readonly DependencyProperty ClickNavigationMenuButtonProperty =
+           DependencyProperty.Register(
+               "ClickNavigationMenuButton",
+               typeof(ICommand),
+               typeof(DefaultGames));
+
+        public ICommand ClickNavigationMenuButton
+        {
+            get { return (ICommand)GetValue(ClickNavigationMenuButtonProperty); }
+            set { SetValue(ClickNavigationMenuButtonProperty, value); }
+        }
+
         public DefaultGames()
         {
             InitializeComponent();

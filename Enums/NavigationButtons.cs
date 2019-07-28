@@ -13,6 +13,9 @@ namespace torrentLauncher.Enums
         Films,
         Serials,
         Book,
-        Comics
+        Comics,
+        Sokoban,
+        Snake,
+        Tetris
     }
 }
