@@ -15,9 +15,11 @@ namespace torrentLauncher.DataStorage
 
         static NavigationMenuViewModels()
         {
-            var home = new NavigationMenuItemModel("Home", PackIconKind.HomeOutline, NavigationButtons.Home);
+            var main = new NavigationMenuItemModel("Main", PackIconKind.HomeOutline, NavigationButtons.Home);
+            var download = new NavigationMenuItemModel("Download", PackIconKind.Download, NavigationButtons.Download);
             var homeGroup = new NavigationMenuGroupModel("Home", null, new List<NavigationMenuItemViewModel> {
-                new NavigationMenuItemViewModel(home)
+                new NavigationMenuItemViewModel(main),
+                new NavigationMenuItemViewModel(download),
             });
 
             var game = new NavigationMenuItemModel("Games", PackIconKind.GamepadVariant, NavigationButtons.Games);

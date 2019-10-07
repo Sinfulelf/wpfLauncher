@@ -40,7 +40,7 @@
                     materialDesign:HintAssist.Hint="Enter the search result"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     BorderThickness="0"
-                    MinWidth="200"
+                    Width="200"
                     VerticalAlignment="Center" />
                 <Button
                     Style="{DynamicResource MaterialDesignToolButton}"

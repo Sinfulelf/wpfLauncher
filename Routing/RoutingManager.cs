@@ -33,6 +33,11 @@ namespace torrentLauncher.Routing
                         uri = "Pages/HomePage.xaml";
                     }
                     break;
+                case NavigationButtons.Download:
+                    {
+                        uri = "Pages/DownloadPage.xaml";
+                    }
+                    break;
                 case NavigationButtons.Games:
                     {
                         uri = "Pages/GamePage.xaml";

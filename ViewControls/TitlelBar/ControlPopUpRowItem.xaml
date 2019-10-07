@@ -13,8 +13,8 @@
     <DockPanel>
         <materialDesign:PackIcon Kind="{Binding Path=ItemModel.Kind}"
                                  VerticalAlignment="Center"
-                                 Width="30"/>
+                                 Width="35"/>
         <TextBlock Text="{Binding Path=ItemModel.Title}"
-                   Padding="3 5"/>
+                   Padding="3 5 15 5"/>
     </DockPanel>
 </UserControl>

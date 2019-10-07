@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading.Tasks;
+using torrentLauncher.Dialogs.TitlelBar;
+using torrentLauncher.ViewControls.RootDialog;
 using Process = System.Diagnostics.Process;
 
 namespace torrentLauncher.ComponentsEventsHandlers
@@ -20,12 +23,24 @@ namespace torrentLauncher.ComponentsEventsHandlers
             }
         }
 
-        public void ClickHandler(TitleBarButtons button)
+        public async Task ClickHandlerAsync(TitleBarButtons button)
         {
             switch (button)
             {
                 case TitleBarButtons.MyTwitter:
-                    myTwitterClick();
+                    {
+                        myTwitterClick();
+                    }
+                    break;
+                case TitleBarButtons.LogOut:
+                    {
+                        //LogOut Command
+                    }
+                    break;
+                default:
+                    {
+                        await DialogHost.Show(new RootDialogWrapper(button), "RootDialog");
+                    }
                     break;
             }
         }

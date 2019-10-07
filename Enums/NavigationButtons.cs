@@ -8,6 +8,7 @@ namespace torrentLauncher.Enums
     {
         None,
         Home,
+        Download,
         Games,
         Emulators,
         Films,

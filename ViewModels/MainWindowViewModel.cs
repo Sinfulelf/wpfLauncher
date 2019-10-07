@@ -19,7 +19,7 @@ namespace torrentLauncher.ViewModels
         private TitleBarEventsHandlers titleBarEventsHandlers;
         private NavigationMenuEventHandler navigationMenuEventHandler;
         private bool navigateionPanelState;
-        private NavigationButtons selectedNavigationMenuItem;
+        private NavigationButtons selectedNavigationMenuItem = NavigationButtons.Home;
 
         #region Constructor
         private MainWindowViewModel() {
@@ -130,11 +130,11 @@ namespace torrentLauncher.ViewModels
             get
             {
                 return clickTitleBarButton ??
-                  (clickTitleBarButton = new GeneralCommand(buttonObj =>
+                  (clickTitleBarButton = new GeneralCommand(async buttonObj =>
                   {
                       if (buttonObj is TitleBarButtons)
                       {
-                          titleBarEventsHandlers.ClickHandler((TitleBarButtons)buttonObj);
+                          await titleBarEventsHandlers.ClickHandlerAsync((TitleBarButtons)buttonObj);
                       }
                   }));
             }

@@ -9,6 +9,7 @@ namespace torrentLauncher
         ViewAccount,
         Settings,
         MyTwitter,
+        Info,
         LogOut
     }
 }
