@@ -43,7 +43,7 @@ namespace torrentLauncher.ViewControls.ContentPages
                 if (c.ContentFrame == null){
                     c.ContentFrame = (c.FindName("contentFrame") as Frame);
                 }
-                Routing.RoutingManager.SwitchPage(c.ContentFrame, c.SelectedNavigationButton);
+                Routing.RoutingManager.SwitchContentPage(c.ContentFrame, c.SelectedNavigationButton);
             }
         }
 

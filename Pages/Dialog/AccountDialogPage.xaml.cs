@@ -10,21 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using torrentLauncher.ViewModels.RootDialog;
 
-namespace torrentLauncher.ViewControls.RootDialog
+namespace torrentLauncher.Pages.Dialog
 {
     /// <summary>
-    /// Interaction logic for RootDialogWrapper.xaml
+    /// Interaction logic for AccountDialogPage.xaml
     /// </summary>
-    public partial class RootDialogWrapper : UserControl
+    public partial class AccountDialogPage : Page
     {
-        public RootDialogWrapper(TitleBarButtons button)
+        public AccountDialogPage()
         {
             InitializeComponent();
-
-            this.DataContext = new RootDialogWrapperViewModel(button);
-            Routing.RoutingManager.SwitchDialogContent(this.DialogFrame, button);
         }
     }
 }

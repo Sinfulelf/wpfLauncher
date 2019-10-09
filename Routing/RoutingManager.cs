@@ -13,15 +13,16 @@ namespace torrentLauncher.Routing
 {
     public static class RoutingManager
     {
-        static bool LoadCompletedAdded;
+        static bool ContentLoadCompletedAdded;
+        static bool DialogContentLoadCompletedAdded;
 
-        public static void SwitchPage(Frame contentFrame, NavigationButtons navigation)
+        public static void SwitchContentPage(Frame contentFrame, NavigationButtons navigation)
         {
             var navigationService = contentFrame.NavigationService;
-            if (!RoutingManager.LoadCompletedAdded)
+            if (!RoutingManager.ContentLoadCompletedAdded)
             {
                 navigationService.LoadCompleted += new LoadCompletedEventHandler(NavigationService_LoadCompleted);
-                RoutingManager.LoadCompletedAdded = true;
+                RoutingManager.ContentLoadCompletedAdded = true;
             }
 
             string uri = null;
@@ -84,8 +85,38 @@ namespace torrentLauncher.Routing
                     }
                     break;
             }
-            if (uri != null)
-            {              
+            if (!string.IsNullOrEmpty(uri))
+            {
+                navigationService.Navigate(new Uri(uri, UriKind.Relative), routeData);
+            }
+        }
+
+        public static void SwitchDialogContent(Frame contentFrame, TitleBarButtons titleBarButton)
+        {
+            var navigationService = contentFrame.NavigationService;
+            string uri = null;
+            object routeData = null;
+
+            switch (titleBarButton)
+            {
+                case TitleBarButtons.Info:
+                    {
+                        uri = "Pages/Dialog/InfoDialogPage.xaml";
+                    }
+                    break;
+                case TitleBarButtons.Settings:
+                    {
+                        uri = "Pages/Dialog/SettingsDialogPage.xaml";
+                    }
+                    break;
+                case TitleBarButtons.ViewAccount:
+                    {
+                        uri = "Pages/Dialog/AccountDialogPage.xaml";
+                    }
+                    break;
+            }
+            if (!string.IsNullOrEmpty(uri))
+            {
                 navigationService.Navigate(new Uri(uri, UriKind.Relative), routeData);
             }
         }

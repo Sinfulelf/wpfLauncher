@@ -27,6 +27,7 @@
         <DockPanel Grid.Row="0" Grid.RowSpan="2"
                        Grid.Column="0" Grid.ColumnSpan="2" 
                        Background="White">
+            <Frame x:Name="DialogFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
         <Button Grid.Row="0"
                 Grid.Column="1"
