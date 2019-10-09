@@ -3,13 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:torrentLauncher.PropertiesConverter"
              xmlns:local="clr-namespace:torrentLauncher.ViewControls.RootDialog"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
-            Hello world
-        </Button>  
+    <Grid Grid.Column="1"
+          Grid.Row="1"
+          Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}},
+                          Path=Width,
+                          Converter={converters:PercentageConverter}, ConverterParameter='0.85'}"
+          Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}},
+                           Path=Height,
+                           Converter={converters:PercentageConverter}, ConverterParameter='0.85'}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.RowSpan="2"
+                       Grid.Column="0" Grid.ColumnSpan="2" 
+                       Background="White">
+        </DockPanel>
+        <Button Grid.Row="0"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignToolButton}"
+                materialDesign:ColorZoneAssist.Mode="Light"
+                Content="{materialDesign:PackIcon Close}"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" />
     </Grid>
 </UserControl>

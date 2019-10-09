@@ -10,11 +10,18 @@
              x:Name="controlPopUpRowItemComponent"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
         <materialDesign:PackIcon Kind="{Binding Path=ItemModel.Kind}"
                                  VerticalAlignment="Center"
-                                 Width="35"/>
+                                 Grid.Column="1"/>
         <TextBlock Text="{Binding Path=ItemModel.Title}"
-                   Padding="3 5 15 5"/>
-    </DockPanel>
+                   Padding="3 5 15 5"
+                   Grid.Column="2"/>
+    </Grid>
 </UserControl>

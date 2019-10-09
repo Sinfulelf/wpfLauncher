@@ -14,14 +14,6 @@ namespace torrentLauncher.ViewModels.NavigationPanel
         }
 
         public NavigationMenuGroupModel ItemModel { get; protected set; }
-
-        private ICommand _clickNavigationMenuButtonCommand;
-        public ICommand ClickNavigationMenuButtonCommand {
-            get => _clickNavigationMenuButtonCommand;
-            set
-            {
-                _clickNavigationMenuButtonCommand = value;
-            }
-        }
+        public ICommand ClickNavigationMenuButtonCommand { get; set; }
     }
 }

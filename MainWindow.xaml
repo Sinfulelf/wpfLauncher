@@ -18,8 +18,8 @@
         Title="Torrent Launcher"
         MinHeight="620" MinWidth="640"
         Name="mainWindow"
-        HorizontalAlignment="Center" WindowStartupLocation="CenterScreen"
-        >
+        HorizontalAlignment="Center"
+        WindowStartupLocation="CenterScreen">
     <!--WindowState="Maximized"-->
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="SizeChanged">

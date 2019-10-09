@@ -101,8 +101,10 @@ namespace torrentLauncher.ViewModels
                 return resizeMainWindow ??
                   (resizeMainWindow = new GeneralCommand(mainWindow =>
                   {
-                      var width = (mainWindow as Window).ActualWidth;
-                      mainWindowState.ChangeState(ChangedStateFields.WindowSize, ResizeHelper.GetSizeType(width));
+                      var window = (mainWindow as Window);
+                      var width = window.ActualWidth;
+                      var height = window.ActualHeight;
+                      mainWindowState.ChangeState(ChangedStateFields.WindowSize, new Point(height, width));
                   }));
             }
         }

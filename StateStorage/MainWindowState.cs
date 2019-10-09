@@ -37,7 +37,7 @@ namespace torrentLauncher.StateStorage
 
         public void ChangeState(ChangedStateFields filed, object value)
         {
-            SetNavigationPanelState();
+            SetObeserversStateChanged();
             switch (filed)
             {
                 case ChangedStateFields.NavigationPanel:
@@ -47,7 +47,10 @@ namespace torrentLauncher.StateStorage
                     break;
                 case ChangedStateFields.WindowSize:
                     {
-                        CurrentWindowSize = (WindowSizeType)value;
+                        var size = value as Point?;
+
+                        WindowSize = size.Value;
+                        CurrentWindowSize = ResizeHelper.GetSizeType(size.Value.Y);
                     }
                     break;
             }
@@ -69,15 +72,25 @@ namespace torrentLauncher.StateStorage
                     }
                     currentWindowSize = value;
                 }
-
             }
         }
+
+        private Point windowSize;
+        public Point WindowSize
+        {
+            get => windowSize;
+            set
+            {
+                windowSize = value;
+            }
+        }
+
         #endregion
 
-        private void SetNavigationPanelState()
+        private void SetObeserversStateChanged()
         {
             if (navigationPanel.StateChanged == null)
-                navigationPanel.StateChanged = StateChanged;
+                navigationPanel.StateChanged += StateChanged;
         }
     }
 }

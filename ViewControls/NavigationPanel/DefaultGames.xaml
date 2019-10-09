@@ -31,14 +31,17 @@
             </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel Margin="5 0 0 0">
                 <Button ToolTip="Sokoban"
+                        ToolTipService.Placement="Right"
                         Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
                         CommandParameter="{x:Static enums:NavigationButtons.Sokoban}"
                         Content="So"/>
                 <Button ToolTip="Snake"
+                        ToolTipService.Placement="Right"
                         Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
                         CommandParameter="{x:Static enums:NavigationButtons.Snake}"
                         Content="Sn"/>
                 <Button ToolTip="Tetris"
+                        ToolTipService.Placement="Right"
                         Command="{Binding Path=ClickNavigationMenuButton, ElementName=defaultGames}"
                         CommandParameter="{x:Static enums:NavigationButtons.Tetris}"
                         Content="Tr"/>

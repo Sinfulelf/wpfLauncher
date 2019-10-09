@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using torrentLauncher.ViewModels.RootDialog;
 
 namespace torrentLauncher.ViewControls.RootDialog
 {
@@ -21,6 +22,8 @@ namespace torrentLauncher.ViewControls.RootDialog
         public RootDialogWrapper(TitleBarButtons button)
         {
             InitializeComponent();
+
+            this.DataContext = new RootDialogWrapperViewModel(button);
         }
     }
 }

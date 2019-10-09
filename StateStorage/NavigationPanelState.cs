@@ -35,9 +35,9 @@ namespace torrentLauncher.StateStorage
                 if (!isOpened.Equals(value))
                 {
                     isOpened = value;
-                    StateChanged(ChangedStateFields.NavigationPanel, value);
+                    if (StateChanged != null)
+                        StateChanged(ChangedStateFields.NavigationPanel, value);
                 }
-
             }
         }
     }
