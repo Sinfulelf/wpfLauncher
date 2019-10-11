@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using torrentLauncher.Dialogs.TitlelBar;
 using torrentLauncher.ViewControls.RootDialog;
 using Process = System.Diagnostics.Process;
 

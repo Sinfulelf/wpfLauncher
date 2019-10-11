@@ -53,10 +53,6 @@
             <contentPages:ContentWrapper x:Name="contentWrapper"
                                          SelectedNavigationButton="{Binding SelectedNavigationButton}"
                                          Grid.Row="1" Grid.Column="1" />
-            <Grid Grid.Row="0" Grid.Column="0"
-                        Grid.ColumnSpan="2" Grid.RowSpan="2"
-                        >
-            </Grid>
         </Grid>
     </materialDesign:DialogHost>
 </Window>

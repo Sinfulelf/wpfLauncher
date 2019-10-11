@@ -12,7 +12,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
         <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges">
-            <ListBox ItemsSource="{Binding Source={x:Static storage:ControllPopUpBtnViewModels.Buttons}}"
+            <ListBox ItemsSource="{Binding Source={x:Static storage:ControllPopUpBtnStorage.Buttons}}"
                      HorizontalContentAlignment="Stretch">
                 <ListBox.ItemContainerStyle>
                     <Style BasedOn="{StaticResource {x:Type ListBoxItem}}" TargetType="{x:Type ListBoxItem}">

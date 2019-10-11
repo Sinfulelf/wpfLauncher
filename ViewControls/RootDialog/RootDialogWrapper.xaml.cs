@@ -20,11 +20,11 @@ namespace torrentLauncher.ViewControls.RootDialog
     public partial class RootDialogWrapper : UserControl
     {
         public RootDialogWrapper(TitleBarButtons button)
-        {
+        {            
             InitializeComponent();
 
-            this.DataContext = new RootDialogWrapperViewModel(button);
             Routing.RoutingManager.SwitchDialogContent(this.DialogFrame, button);
+            this.DataContext = new RootDialogWrapperViewModel(button);            
         }
     }
 }

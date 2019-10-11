@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace torrentLauncher.Dialogs.TitlelBar
+namespace torrentLauncher.ViewControls.Pages.Settings
 {
     /// <summary>
-    /// Interaction logic for SettingsDialog.xaml
+    /// Interaction logic for SettingsNavigationPanel.xaml
     /// </summary>
-    public partial class SettingsDialog : UserControl
+    public partial class SettingsNavigationPanel : UserControl
     {
-        public SettingsDialog()
+        public SettingsNavigationPanel()
         {
             InitializeComponent();
         }

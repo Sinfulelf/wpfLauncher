@@ -9,11 +9,9 @@
              mc:Ignorable="d" 
              Name="titleBarControll"
              d:DesignHeight="450" d:DesignWidth="800">
-    <materialDesign:ColorZone
-        Mode="PrimaryLight"
-        materialDesign:ShadowAssist.ShadowDepth="Depth2"
-        Padding="10 5"
-        >
+    <materialDesign:ColorZone Mode="PrimaryLight"
+                              materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                              Padding="10 5">
         <DockPanel>
             <local:ControllPopUpBtn x:Name="controllPopUpBtn"
                                     DockPanel.Dock="Right" 

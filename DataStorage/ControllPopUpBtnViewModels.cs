@@ -7,11 +7,11 @@ using torrentLauncher.ViewModels.TitlelBar;
 
 namespace torrentLauncher.DataStorage
 {
-    public static class ControllPopUpBtnViewModels
+    public static class ControllPopUpBtnStorage
     {
         public static List<ControlPopUpRowItemViewModel> Buttons { get; set; }
 
-        static ControllPopUpBtnViewModels()
+        static ControllPopUpBtnStorage()
         {
             Buttons = new List<ControlPopUpRowItemViewModel>() {
                 new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("View Account", PackIconKind.AccountSettings, TitleBarButtons.ViewAccount, Routing.RoutingEnum.ViewAccount)),

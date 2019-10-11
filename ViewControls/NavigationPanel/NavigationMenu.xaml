@@ -13,7 +13,7 @@
     <ScrollViewer>
         <StackPanel Name="panelMenu"
                 Orientation="Vertical">
-            <ItemsControl ItemsSource="{Binding Source={x:Static storage:NavigationMenuViewModels.Groups}}"
+            <ItemsControl ItemsSource="{Binding Source={x:Static storage:NavigationMenuStorage.Groups}}"
                       IsEnabled="{Binding IsChecked}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

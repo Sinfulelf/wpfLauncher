@@ -9,11 +9,11 @@ using torrentLauncher.ViewModels.NavigationPanel;
 
 namespace torrentLauncher.DataStorage
 {
-    public static class NavigationMenuViewModels
+    public static class NavigationMenuStorage
     {
         public static List<NavigationMenuGroupViewModel> Groups { get; set; }
 
-        static NavigationMenuViewModels()
+        static NavigationMenuStorage()
         {
             var main = new NavigationMenuItemModel("Main", PackIconKind.HomeOutline, NavigationButtons.Home);
             var download = new NavigationMenuItemModel("Download", PackIconKind.Download, NavigationButtons.Download);
@@ -24,7 +24,6 @@ namespace torrentLauncher.DataStorage
 
             var game = new NavigationMenuItemModel("Games", PackIconKind.GamepadVariant, NavigationButtons.Games);
             var emulators = new NavigationMenuItemModel("Emulators", PackIconKind.SpaceInvaders, NavigationButtons.Emulators);
-
             var gameGroup = new NavigationMenuGroupModel("Play", null, new List<NavigationMenuItemViewModel> {
                 new NavigationMenuItemViewModel(game),
                 new NavigationMenuItemViewModel(emulators)
@@ -32,7 +31,6 @@ namespace torrentLauncher.DataStorage
 
             var film = new NavigationMenuItemModel("Films", PackIconKind.Filmstrip, NavigationButtons.Films);
             var serials = new NavigationMenuItemModel("Serials", PackIconKind.Film, NavigationButtons.Serials);
-
             var moviesGroup = new NavigationMenuGroupModel("Movies", null, new List<NavigationMenuItemViewModel> {
                 new NavigationMenuItemViewModel(film),
                 new NavigationMenuItemViewModel(serials),
@@ -40,10 +38,9 @@ namespace torrentLauncher.DataStorage
 
             var book = new NavigationMenuItemModel("Book", PackIconKind.BookOpen, NavigationButtons.Book);
             var comics = new NavigationMenuItemModel("Comics", PackIconKind.CityVariant, NavigationButtons.Comics);
-
             var readGroup = new NavigationMenuGroupModel("Read", null, new List<NavigationMenuItemViewModel> {
                 new NavigationMenuItemViewModel(book),
-                new NavigationMenuItemViewModel(comics),
+                /*new NavigationMenuItemViewModel(comics),*/
             });
 
             Groups = new List<NavigationMenuGroupViewModel> {
