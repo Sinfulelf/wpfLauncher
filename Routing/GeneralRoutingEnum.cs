@@ -4,7 +4,7 @@ using System.Text;
 
 namespace torrentLauncher.Routing
 {
-    public enum RoutingEnum
+    public enum GeneralRoutingEnum
     {
         None,
         LogIn,

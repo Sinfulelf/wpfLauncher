@@ -16,7 +16,7 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Title="Torrent Launcher"
-        MinHeight="620" MinWidth="640"
+        MinHeight="620" MinWidth="840"
         Name="mainWindow"
         HorizontalAlignment="Center"
         WindowStartupLocation="CenterScreen">
@@ -27,7 +27,7 @@
                                    CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <materialDesign:DialogHost Identifier="RootDialog">
+    <materialDesign:DialogHost Identifier="RootDialog" CloseOnClickAway="True">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="45" />

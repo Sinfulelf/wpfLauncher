@@ -4,56 +4,65 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:settingsControls="clr-namespace:torrentLauncher.ViewControls.Pages.Settings"
+      xmlns:converters="clr-namespace:torrentLauncher.Converters.ViewControls"
       xmlns:local="clr-namespace:torrentLauncher.Pages.Dialog"
+      xmlns:vm="clr-namespace:torrentLauncher.ViewModels.Pages.Dialog"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SettingsDialogPage">
+      Title="SettingsDialogPage"
+      x:Name="settingsDialogPage">
+    <Page.DataContext>
+        <vm:SettingsDialogViewModel />
+    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="185"/>
+            <ColumnDefinition Width="*" MinWidth="200"/>
             <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
         <GroupBox Margin="16 24 0 16"
-                  Grid.Column="0">
+                  Grid.Column="0"
+                  Padding="0">
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Height="32">
+                                Height="50">
                         <materialDesign:PackIcon Kind="SettingsOutline"
-                                                 Height="34"
-                                                 Width="32" />
+                                                 Height="50"
+                                                 Width="40"
+                                                 Padding="8"
+                                                 Margin="5 0"/>
                         <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                                    Padding="12 0 0 0"
-                                   VerticalAlignment="Center">
-                            Settings
+                                   VerticalAlignment="Center"
+                                   Text="Settings">
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
-            <TextBlock>
-                My Content
-            </TextBlock>
+            <settingsControls:SettingsNavigationPanel SelectedSetting="{Binding SelectedSetting}"
+                                                      ClickNavigationSettingMenuButtonCommand="{Binding ClickNavigationSettingMenuButtonCommand}" />
         </GroupBox>
         <GroupBox Margin="-1 24 24 16"
                   Grid.Column="1"
                   Padding="0">
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
-                    <Canvas HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Height="50">
-                    </Canvas>
+                    <Canvas Height="50" />
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
             <Grid>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ToggleButton IsChecked="{Binding ElementName=SnackbarTwo, Path=IsActive, Mode=TwoWay}"
-                                  Margin="0" />
+                    <Frame x:Name="settingContentFrame"
+                           NavigationUIVisibility="Hidden"
+                           Content="{Binding Path=SelectedSetting,
+                                             Mode=OneWay,
+                                             UpdateSourceTrigger=PropertyChanged,
+                                             Converter={converters:SettingsDialogRoutingConverter}, ConverterParameter={x:Null}}"/>
                 </StackPanel>
-                <materialDesign:Snackbar IsActive="False"
-                                         x:Name="SnackbarTwo"
+                <materialDesign:Snackbar IsActive="{Binding SnackbarShow}"
                                          ActionButtonStyle="{StaticResource MaterialDesignSnackbarActionMidButton}">
                     <materialDesign:SnackbarMessage Grid.Column="1"
                                                     Content="{Binding SnackbarMessage}"

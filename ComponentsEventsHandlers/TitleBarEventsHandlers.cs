@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using torrentLauncher.Routing;
 using torrentLauncher.ViewControls.RootDialog;
 using Process = System.Diagnostics.Process;
 
@@ -24,6 +25,8 @@ namespace torrentLauncher.ComponentsEventsHandlers
 
         public async Task ClickHandlerAsync(TitleBarButtons button)
         {
+            Action closingCallBack = null;
+
             switch (button)
             {
                 case TitleBarButtons.MyTwitter:
@@ -36,9 +39,20 @@ namespace torrentLauncher.ComponentsEventsHandlers
                         //LogOut Command
                     }
                     break;
+                case TitleBarButtons.Settings:
+                    {
+                        closingCallBack = RoutingManager.ClearSettingDialogContent;
+                    }
+                    goto default;
                 default:
                     {
-                        await DialogHost.Show(new RootDialogWrapper(button), "RootDialog");
+                        await DialogHost.Show(new RootDialogWrapper(button), "RootDialog",
+                           new DialogClosingEventHandler((object sender, DialogClosingEventArgs args) =>
+                           {
+                               if (closingCallBack != null)
+                                   closingCallBack();
+                           })).ConfigureAwait(true);
+
                     }
                     break;
             }

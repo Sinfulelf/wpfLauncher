@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace torrentLauncher.PropertiesConverter
+namespace torrentLauncher.Converters
 {
     public class PercentageConverter : MarkupExtension, IValueConverter
     {

@@ -6,6 +6,12 @@ namespace torrentLauncher.Enums
 {
     public enum SettingNavigationItems
     {
-        Window
+        Window,
+        Download,
+        Games,
+        Emulators,
+        Films,
+        Folders,
+        Book,
     }
 }

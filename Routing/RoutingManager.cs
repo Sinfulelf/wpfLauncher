@@ -5,7 +5,9 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using torrentLauncher.Enums;
+using torrentLauncher.PageInterfaces;
 using torrentLauncher.Pages;
+using torrentLauncher.Pages.Dialog.Settings;
 using torrentLauncher.ViewControls.NavigationPanel;
 using torrentLauncher.ViewModels.Pages;
 
@@ -14,7 +16,6 @@ namespace torrentLauncher.Routing
     public static class RoutingManager
     {
         static bool ContentLoadCompletedAdded;
-        static bool DialogContentLoadCompletedAdded;
 
         public static void SwitchContentPage(Frame contentFrame, NavigationButtons navigation)
         {
@@ -119,6 +120,73 @@ namespace torrentLauncher.Routing
             {
                 navigationService.Navigate(new Uri(uri, UriKind.Relative), routeData);
             }
+        }
+
+
+        private static Dictionary<SettingNavigationItems, ISingletonPage> settingContentPages = new Dictionary<SettingNavigationItems, ISingletonPage>();
+        public static Page SwitchSettingDialogContent(SettingNavigationItems navigationItem)
+        {
+            Page result = null;
+
+            switch (navigationItem)
+            {
+                case SettingNavigationItems.Window:
+                    {
+                        result = WindowSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Download:
+                    {
+                        result = DownloadSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Games:
+                    {
+                        result = GameSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Emulators:
+                    {
+                        result = EmulatorsSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Films:
+                    {
+                        result = FilmsSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Folders:
+                    {
+                        result = FoldersSettingsPage.Instance;
+                    }
+                    break;
+                case SettingNavigationItems.Book:
+                    {
+                        result = BooksSettingsPage.Instance;
+                    }
+                    break;
+            }
+
+            if(result != null)
+            {
+                if (settingContentPages.ContainsKey(navigationItem))
+                    settingContentPages[navigationItem] = (result as ISingletonPage);
+                else
+                    settingContentPages.Add(navigationItem, (result as ISingletonPage));
+            }
+
+            return result;
+        }
+
+        public static void ClearSettingDialogContent()
+        {
+            foreach(var keyPair in settingContentPages)
+            {
+                keyPair.Value.ClearInstance();
+            }
+            settingContentPages = new Dictionary<SettingNavigationItems, ISingletonPage>();
+
+            GC.Collect();
         }
 
         private static void NavigationService_LoadCompleted(object sender, NavigationEventArgs e)

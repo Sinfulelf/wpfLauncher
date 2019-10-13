@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using torrentLauncher.Commands;
+using torrentLauncher.Converters;
+using torrentLauncher.DataStorage;
+using torrentLauncher.Enums;
 
 namespace torrentLauncher.ViewModels.Pages.Dialog
 {
-    public class SettingsDialogViewModel: BasicNotifyPropertyChanged
+    public class SettingsDialogViewModel : BasicNotifyPropertyChanged
     {
         private GeneralCommand snackbarUndoCommand;
 
@@ -40,6 +42,34 @@ namespace torrentLauncher.ViewModels.Pages.Dialog
                     snackbarMessage = value;
                     OnPropertyChanged("SnackbarMessage");
                 }
+            }
+        }
+
+        private SettingNavigationItems selectedSetting = SettingNavigationItems.Window;
+        public SettingNavigationItems SelectedSetting {
+            get => selectedSetting;
+            set {
+                if (selectedSetting != value)
+                {
+                    selectedSetting = value;
+                    OnPropertyChanged("SelectedSetting");
+                }
+            }
+        }
+
+        private GeneralCommand clickNavigationSettingMenuButton;
+        public GeneralCommand ClickNavigationSettingMenuButtonCommand
+        {
+            get
+            {
+                return clickNavigationSettingMenuButton ??
+                  (clickNavigationSettingMenuButton = new GeneralCommand(buttonObj =>
+                  {
+                      if (buttonObj is SettingNavigationItems)
+                      {
+                          SelectedSetting = (SettingNavigationItems)buttonObj;
+                      }
+                  }));
             }
         }
     }

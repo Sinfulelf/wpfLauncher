@@ -14,11 +14,11 @@ namespace torrentLauncher.DataStorage
         static ControllPopUpBtnStorage()
         {
             Buttons = new List<ControlPopUpRowItemViewModel>() {
-                new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("View Account", PackIconKind.AccountSettings, TitleBarButtons.ViewAccount, Routing.RoutingEnum.ViewAccount)),
+                new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("View Account", PackIconKind.AccountSettings, TitleBarButtons.ViewAccount, Routing.GeneralRoutingEnum.ViewAccount)),
                 new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("Settings", PackIconKind.SettingsOutline, TitleBarButtons.Settings)),
                 new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("My Twitter", PackIconKind.Twitter, TitleBarButtons.MyTwitter)),
                 new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("Info", PackIconKind.InformationVariant, TitleBarButtons.Info)),
-                new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("LogOut", PackIconKind.Logout, TitleBarButtons.LogOut, Routing.RoutingEnum.LogOut))
+                new ControlPopUpRowItemViewModel(new ControlPopUpRowItemModel("LogOut", PackIconKind.Logout, TitleBarButtons.LogOut, Routing.GeneralRoutingEnum.LogOut))
             };
         }
     }

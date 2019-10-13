@@ -14,9 +14,9 @@ namespace torrentLauncher.Models.TitlelBar
 
         public TitleBarButtons Button { get; set; }
 
-        public RoutingEnum Route { get; set; }
+        public GeneralRoutingEnum Route { get; set; }
 
-        public ControlPopUpRowItemModel(string title, PackIconKind kind, TitleBarButtons button, RoutingEnum route  = RoutingEnum.None)
+        public ControlPopUpRowItemModel(string title, PackIconKind kind, TitleBarButtons button, GeneralRoutingEnum route  = GeneralRoutingEnum.None)
         {
             Title = title;
             Kind = kind;

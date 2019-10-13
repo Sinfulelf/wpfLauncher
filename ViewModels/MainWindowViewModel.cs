@@ -17,7 +17,6 @@ namespace torrentLauncher.ViewModels
     {
         private MainWindowState mainWindowState;
         private TitleBarEventsHandlers titleBarEventsHandlers;
-        private NavigationMenuEventHandler navigationMenuEventHandler;
         private bool navigateionPanelState;
         private NavigationButtons selectedNavigationMenuItem = NavigationButtons.Home;
 
@@ -25,7 +24,6 @@ namespace torrentLauncher.ViewModels
         private MainWindowViewModel() {
             mainWindowState = MainWindowState.Instance;
             titleBarEventsHandlers = TitleBarEventsHandlers.Instance;
-            navigationMenuEventHandler = NavigationMenuEventHandler.Instance;
 
             mainWindowState.StateChanged += StateChanged;
         }
@@ -119,7 +117,6 @@ namespace torrentLauncher.ViewModels
                   {
                       if (buttonObj is NavigationButtons)
                       {
-                          navigationMenuEventHandler.ClickHandler((NavigationButtons)buttonObj);
                           SelectedNavigationButton = (NavigationButtons)buttonObj;
                       }
                   }));

@@ -11,18 +11,17 @@
              x:Name="navigationMenu"
              d:DesignHeight="300" d:DesignWidth="60">
     <ScrollViewer>
-        <StackPanel Name="panelMenu"
-                Orientation="Vertical">
+        <StackPanel Name="panelMenu" Orientation="Vertical">
             <ItemsControl ItemsSource="{Binding Source={x:Static storage:NavigationMenuStorage.Groups}}"
-                      IsEnabled="{Binding IsChecked}">
+                          IsEnabled="{Binding IsChecked}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <DockPanel>
                             <local:NavigationMenuGroup DataContext="{Binding}"
-                                                   ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand,
-                                                                                      RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"
-                                                   SelectedNavigationButton="{Binding SelectedNavigationButton,
-                                                                                      RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"/>
+                                                       ClickNavigationMenuButtonCommand="{Binding ClickNavigationMenuButtonCommand,
+                                                                                                  RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"
+                                                       SelectedNavigationButton="{Binding SelectedNavigationButton,
+                                                                                          RelativeSource={RelativeSource AncestorType=local:NavigationMenu}}"/>
                         </DockPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
