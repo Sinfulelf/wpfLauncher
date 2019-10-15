@@ -8,7 +8,7 @@ namespace torrentLauncher
     {
         ViewAccount,
         Settings,
-        MyTwitter,
+        SourceRepository,
         Info,
         LogOut
     }

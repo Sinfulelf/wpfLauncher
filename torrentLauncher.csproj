@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Styles\NavigationPanel\NavigationMenuItemStyle.xaml" />
+    <None Remove="Torrent.ico" />
     <None Remove="ViewControls\ContentPages\ContentWrapper.xaml" />
     <None Remove="ViewControls\NavigationPanel\DefaultGames.xaml" />
     <None Remove="ViewControls\NavigationPanel\NavigationMenu.xaml" />
@@ -60,9 +61,15 @@
 
   <ItemGroup>
     <PackageReference Include="Expression.Blend.Sdk" Version="1.0.2" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.0.8" />
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
     <PackageReference Include="MaterialDesignColors" Version="1.2.0" />
     <PackageReference Include="MaterialDesignThemes" Version="2.6.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Torrent.ico" />
   </ItemGroup>
 
   <ItemGroup>

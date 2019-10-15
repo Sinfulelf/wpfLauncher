@@ -29,9 +29,9 @@ namespace torrentLauncher.ComponentsEventsHandlers
 
             switch (button)
             {
-                case TitleBarButtons.MyTwitter:
+                case TitleBarButtons.SourceRepository:
                     {
-                        myTwitterClick();
+                        mySourceRepositoryClick();
                     }
                     break;
                 case TitleBarButtons.LogOut:
@@ -58,14 +58,14 @@ namespace torrentLauncher.ComponentsEventsHandlers
             }
         }
 
-        private void myTwitterClick()
+        private void mySourceRepositoryClick()
         {
             Process myProcess = new Process();
 
             try
             {
                 myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.FileName = @"https://twitter.com/Sinfulelf";
+                myProcess.StartInfo.FileName = @"https://github.com/Sinfulelf/wpfLauncher";
                 myProcess.Start();
             }
             catch { }

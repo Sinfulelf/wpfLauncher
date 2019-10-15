@@ -6,6 +6,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:torrentLauncher"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:titleBar="clr-namespace:torrentLauncher.ViewControls.TitlelBar"
         xmlns:navigationPanel="clr-namespace:torrentLauncher.ViewControls.NavigationPanel"
         xmlns:contentPages="clr-namespace:torrentLauncher.ViewControls.ContentPages"
